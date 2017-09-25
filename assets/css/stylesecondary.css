@@ -1,0 +1,45 @@
+
+
+
+.container{
+	background-image: url("../images/background.jpg");
+	background-size: 100%;
+	font-family: 'Changa', sans-serif;
+    background-repeat: no-repeat;
+    margin-bottom: 0px;
+  margin-top: 0px;
+  height: 130px;
+  width: 100%;
+  text-align: center;
+}
+h1{
+	color: white;
+	font-weight: bold;	
+	font-size: 60px;
+}
+p{
+	color: white;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+.form-group{
+	margin-bottom: 100px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
