@@ -32,7 +32,7 @@ body {
  .control-label{
  	width: 120px;
   background-color: #289988;
-  margin-right: -20px;
+  margin-right: -5px;
   padding-right: 20px;
   height: 33px;
   text-align: center !important;
@@ -81,4 +81,12 @@ h1{
     -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+button, input, select, textarea {
+    color: gray;
+    width: 50%;
+    height: 35px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
 }

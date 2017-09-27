@@ -58,20 +58,29 @@ margin-top: 0;
  <div class="topnav" id="myTopnav">
 <form id="searchForm" method="post" class="form-horizontal">
     <div class="form-group">
-    <div class="col-xs-2">
+    <row>
+     <div class="col-xs-1">
         </div>
-        <label class="col-xs-1 control-label">Search Deals</label>
-        <div class="col-xs-3">
-            <input type="text" class="form-control" id="deal-category" placeholder="Category" />
+        <div class="col-md-3">
+        <label class="control-label">Search Deals</label>
+            <select id="deal-category">
+            <option>Category</option>
+            </select>
         </div>
-         <label class="col-xs-1 control-label">Location</label>
-        <div class="col-xs-3">
-            <input type="text" class="form-control" id="deal-location" placeholder="Zipcode" />
+        <div class="col-md-3">
+        <label class="control-label">Sub</label>
+            <select id="deal-sub">
+            <option>Option</option>
+            </select>
         </div>
-        <div class="col-xs-1">
+        <div class="col-md-3">
+         <label class="control-label">Location</label>
+            <input type="text"  id="deal-location" placeholder="Zipcode" />
+        </div>
+        <div class="col-md-2">
            <input id="submit-search" type="submit" value="Submit" class="btn btn-primary">
         </div>
-    </div>
+        </row>
   </div>
   </form>
 </div>
