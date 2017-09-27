@@ -19,7 +19,7 @@
 
 $(function(){
     var select=document.getElementById("deal-category");
-    catData={'product': ["beauty_health","automotive"], 'fitness':["boot-camp", "fitness-classes"]
+    catData={'product': ["beauty_health","automotive", "audio", "beauty_health", "craft_hobbies", "electronics", "food_alcohol", "mens_fashion", "mobile", "movies_music_games", "office_supplies","toys", "tools", "women_fashion"], 'fitness':["boot-camp", "fitness-classes", "gym", "martial-arts", "personal-training", "pilates", "yoga"], 'dining-nightlife': ["bars-clubs", "dining-nightlife", "restaurants"]
   };
   var categoryKeys=Object.keys(catData);
   populateDropdown('deal-category', categoryKeys);
