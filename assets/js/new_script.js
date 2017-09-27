@@ -42,5 +42,17 @@ $("#deal-category").on("change",function(){
     populateDropdown('deal-sub', subs);
 });
 
-//$("submit").click(function() {
-  //  $('select').prop('selectedIndex', 0);
+//Sqoot API
+var authKey = "BfnFKFtwdc-UU9MV9jZE";
+var queryURL = "http://api.sqoot.com/v2/deals?api_key=" + authKey
+
+
+ $.ajax({
+    url: queryURL,
+    method: "GET"
+}).done(function(sqootData) {
+
+  console.log(sqootData);
+
+});
+
