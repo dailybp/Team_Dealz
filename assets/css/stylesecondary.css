@@ -1,6 +1,14 @@
-
-
-
+*{
+    margin: 0;
+}
+/*html{
+    position: relative;
+    min-height: 100%;
+}
+*/
+html, body {
+    height: 100%;
+}    
 .container{
 	background-image: url("../images/background.jpg");
 	background-size: 100%;
@@ -50,4 +58,57 @@ button, input, select, textarea {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+}
+
+#deals-View{
+    height: 200px;
+    width:100%;
+    margin-top: 40px;
+    text-align: center;
+}
+
+#reviews-View{
+    clear:both;
+    height: 200px;
+    width:60%;
+    margin-top: 40px;
+    right:0;
+}
+
+
+#dealzBox{
+  border-color: #FF8C00;
+  border-width: 2px;
+  border-style: solid;
+  color: white;
+  padding:10px;
+/*  margin-bottom: 40px;*/
+  text-align: center;
+  height: 100%;
+  background-color: #F0B52E;
+}
+
+footer{
+    font-family: 'Changa', sans-serif;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    background-color: #289988;
+    color: white;
+    position:fixed!important;
+    position:absolute;
+    visibility:visible;
+}
+img{
+    margin-top: 40px;
+    height:100%;
+    width:200px;
+    float:right;
+}
+.dealBtn{
+    margin-top: 0;
+    top:0;
+    margin-bottom: 40px;
+
 }

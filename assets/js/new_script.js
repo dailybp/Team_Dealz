@@ -42,17 +42,63 @@ $("#deal-category").on("change",function(){
     populateDropdown('deal-sub', subs);
 });
 
-//Sqoot API
+//---Sqoot API---
 var authKey = "BfnFKFtwdc-UU9MV9jZE";
-var queryURL = "http://api.sqoot.com/v2/deals?api_key=" + authKey
+var queryURL = "http://api.sqoot.com/v2/deals?api_key=" + authKey;
 
-
- $.ajax({
+//---On Click Command Prompt---
+// $("#submit-search").on("click", function() {
+// event.preventDefault();
+   $.ajax({
     url: queryURL,
     method: "GET"
 }).done(function(sqootData) {
+var results = sqootData;
 
-  console.log(sqootData);
+  //---Clears Old Div---
+  $("#deals-View").empty();
 
-});
+  for (var i=0; i<results.deals.length; i++){
+
+  //---Variables for API Data---
+  var coupon = results.deals[i].deal;
+  var shortTitle = coupon.short_title;
+  var price = coupon.price;
+  var provider = coupon.provider_name;
+  var dealView = coupon.url;
+  var dealBtn = $('<button type="button" class="btn btn-danger dealBtn">'+ "View Deal" +'</button>');
+
+console.log(onclick="window.location.href=coupon.url");
+
+  var displayBox = ("<h4>"+shortTitle+"</h4>" + "<br>" + "Provided By: " + provider + "<br>" + "$" + price + "<br>");
+  //---What will be shown in the Div Box---
+  var divBox = $("<div id = dealzBox>").html(displayBox);
+
+
+  //---Populates Div Box with Variable Data from API---
+  $("#deals-View").append(divBox);
+  $("#deals-View").append(dealBtn);
+
+  
+  $(".dealBtn").on("click", function() {
+    window.open(dealView);
+
+
+    // ---Need to be able to grab url for each div---
+    // location.href=this.dealView;
+  })
+
+
+  var imageTag = $("<img>");
+  imageTag.attr("src", coupon.image_url);
+  
+  $("#reviews-View").append(imageTag);
+ 
+}
+
+//---Shows Sqoot API Data--
+    console.log(sqootData);
+   
+    })
+  // });
 
