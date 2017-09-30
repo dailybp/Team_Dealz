@@ -70,27 +70,30 @@ var results = sqootData;
 
 console.log(onclick="window.location.href=coupon.url");
 
-  var displayBox = ("<h4>"+shortTitle+"</h4>" + "<br>" + "Provided By: " + provider + "<br>" + "$" + price + "<br>");
+//  var displayBox = "<div class = \"container-fluid dealzBox\"><h4>"+shortTitle+"</h4>" + "<br>" + 
+ //         "Provided By: " + provider + "<br>" + "$" + price + "<br>";
   //---What will be shown in the Div Box---
-  var divBox = $("<div id = dealzBox>").html(displayBox);
-
+ // var divBox = $("<div class = dealzBox>").html(displayBox);
+  var imageTag = $("<img class=\"image-View\">");
+  imageTag.attr("src", coupon.image_url);
 
   //---Populates Div Box with Variable Data from API---
-  $("#deals-View").append(divBox);
-  $("#deals-View").append(dealBtn);
+  $("#deals-View").append("<row><div class = \"container-fluid dealzBox\"><div class=\"col-md-4\">"+ 
+    "<img class=\"image-View\" src=\""+coupon.image_url+"\" /></div> +<div class=\"col-md-8\">"+
+    
+   "<h4>"+shortTitle+"</h4>" + "<br>" + 
+          "Provided By: " + provider + "<br>" + "$" + price + "<br>" +
+    '<button type="button" class="btn btn-danger dealBtn">'+ "View Deal" +'</button>"</div></row>');
+    //  .append(imageTag)
+    //  .append(dealBtn)
+    //  .append('</div>');
+      //$("#deals-View").append(dealBtn);
 
-  
   $(".dealBtn").on("click", function() {
     window.open(dealView);
-
-
     // ---Need to be able to grab url for each div---
     // location.href=this.dealView;
   })
-
-
-  var imageTag = $("<img>");
-  imageTag.attr("src", coupon.image_url);
   
   $("#reviews-View").append(imageTag);
  
