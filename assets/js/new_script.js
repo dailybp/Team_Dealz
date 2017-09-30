@@ -1,20 +1,20 @@
-//$.post("https://api.yelp.com/oauth2/token",{
-//  grant_type: "client_credentials",
- // client_id: "l_OltA5Ew4ICDizscxfjeg",
- // client_secret: "yfDHBhk1vmpuW5BiOj5nqXFGKT920vVSf011iddUwUcyPKF7qWyIRkTZWVWXDqhV"
-//}, function(response){
-//  console.log(response);
-//  var token = response.access_token;
+$.post("https://api.yelp.com/oauth2/token",{
+ grant_type: "client_credentials",
+ client_id: "l_OltA5Ew4ICDizscxfjeg",
+ client_secret: "yfDHBhk1vmpuW5BiOj5nqXFGKT920vVSf011iddUwUcyPKF7qWyIRkTZWVWXDqhV"
+}, function(response){
+ console.log(response);
+ var token = response.access_token;
   //write all js in here (yelp)
 
 
   //--------
- // $.ajax({
- //   url: "https://api.yelp.com/v3/businesses/search?location=Washington+DC",
- //   headers:{"Authorization": "Bearer " + token}
- // }).done(function(response){
-//    console.log(response);
-//  });
+ $.ajax({
+   url: "https://api.yelp.com/v3/businesses/search?location=Washington+DC",
+   headers:{"Authorization": "Bearer " + token}
+ }).done(function(response){
+   console.log(response);
+ });
   //responses received from
 
 $(function(){
@@ -66,6 +66,16 @@ var results = sqootData;
   var price = coupon.price;
   var provider = coupon.provider_name;
   var dealView = coupon.url;
+  //------Variables being Used for Yelp Api call
+  phoneNumber = sqootData.deals[i].deal.merchant.phone_number;
+  console.log(phoneNumber);
+  zipCode = sqootData.deals[i].deal.merchant.postal_code;
+  console.log(zipCode);
+  latitude = sqootData.deals[i].deal.merchant.latitude;
+  console.log(latitude);
+  longitude = sqootData.deals[i].deal.merchant.longitude;
+  console.log(longitude);
+  //--------------------------------------------
   var dealBtn = $('<button type="button" class="btn btn-danger dealBtn">'+ "View Deal" +'</button>');
 
 console.log(onclick="window.location.href=coupon.url");
@@ -100,4 +110,4 @@ console.log(onclick="window.location.href=coupon.url");
     console.log(sqootData);
 
     })
-  // });
+   });
