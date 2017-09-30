@@ -10,15 +10,18 @@ html, body {
     height: 100%;
 }    
 .container{
-	background-image: url("../images/background.jpg");
-	background-size: 100%;
-	font-family: 'Changa', sans-serif;
-    background-repeat: no-repeat;
-    margin-bottom: 0px;
-  margin-top: 0px;
-  height: 130px;
-  width: 100%;
-  text-align: center;
+background-image: url("../images/background.jpg");
+background-size: 100%;
+font-family: 'Changa', sans-serif;
+background-repeat: no-repeat;
+margin-bottom: 0;
+margin-top: 0;
+height: 130px;
+width: 100%;
+text-align: center;
+}
+.btn{
+	width: 94px;
 }
 h1{
 	color: white;
@@ -31,7 +34,12 @@ p{
 	font-size: 18px;
 }
 .form-group{
-	margin-bottom: 100px;
+ padding-top: 10px;
+ padding-bottom: 10px;
+ border-style: solid;
+ border-color: #F0B52E;
+ background-color: #F0B52E;
+ margin-bottom: 0;
 }
 .form-control {
     display: block;
@@ -53,7 +61,7 @@ p{
 }
 button, input, select, textarea {
     color: gray;
-    width: 50%;
+    width: 45%;
     height: 35px;
     font-family: inherit;
     font-size: inherit;
@@ -63,7 +71,6 @@ button, input, select, textarea {
 #deals-View{
     height: 200px;
     width:100%;
-    margin-top: 40px;
     text-align: center;
 }
 
@@ -73,10 +80,6 @@ button, input, select, textarea {
     width:60%;
     margin-top: 40px;
     right:0;
-}
-
-.image-View{
-  ;
 }
 .dealzBox{
   border-color: #FF8C00;
@@ -102,10 +105,12 @@ footer{
     visibility:visible;
 }
 img{
-    height: 300px;
-    float:right;
+    height: 200px;
+    width: 300px;
+    float: left;
 }
 .dealBtn{
+	width: 100px;
     margin-top: 0;
     top:0;
  
