@@ -1,5 +1,5 @@
 
-body {
+/*body {
    background-image: url("../images/background.jpg");
 	background-size: 100%;
     background-repeat: no-repeat;
@@ -32,7 +32,7 @@ body {
  .control-label{
  	width: 120px;
   background-color: #289988;
-  margin-right: -20px;
+  margin-right: -5px;
   padding-right: 20px;
   height: 33px;
   text-align: center !important;
@@ -82,3 +82,11 @@ h1{
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
+button, input, select, textarea {
+    color: gray;
+    width: 50%;
+    height: 35px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}*/
