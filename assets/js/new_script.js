@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var config = {
     apiKey: "AIzaSyBf6G5CDw1GNdhHTUUp8oOmgY9sPQxUCQM",
     authDomain: "dealio-8c33b.firebaseapp.com",
@@ -13,8 +12,6 @@ var dataRef = firebase.database();
 
 console.log(dataRef);
 
-var phoneNumber = "";
-
 //Yelp API
 $.post("https://api.yelp.com/oauth2/token",{
   grant_type: "client_credentials",
@@ -23,20 +20,10 @@ $.post("https://api.yelp.com/oauth2/token",{
 }, function(response){
   console.log(response);
   var token = response.access_token;
-=======
-//$.post("https://api.yelp.com/oauth2/token",{
-//  grant_type: "client_credentials",
- // client_id: "l_OltA5Ew4ICDizscxfjeg",
- // client_secret: "yfDHBhk1vmpuW5BiOj5nqXFGKT920vVSf011iddUwUcyPKF7qWyIRkTZWVWXDqhV"
-//}, function(response){
-//  console.log(response);
-//  var token = response.access_token;
->>>>>>> bc0563d49a159af74f3ca554024537c622920c3d
   //write all js in here (yelp)
 
   var yelpQueryURL = "https://api.yelp.com/v3/businesses/search?location=" + zipCode + "&ll" + latitude + "," + longitude;
   //--------
-<<<<<<< HEAD
   $.ajax({
     url: yelpQueryURL,
     headers:{"Authorization": "Bearer " + token}
@@ -45,15 +32,6 @@ $.post("https://api.yelp.com/oauth2/token",{
   });
   //responses received from
   //$("#reviews-View").html()
-
-=======
- // $.ajax({
- //   url: "https://api.yelp.com/v3/businesses/search?location=Washington+DC",
- //   headers:{"Authorization": "Bearer " + token}
- // }).done(function(response){
-//    console.log(response);
-//  });
-  //responses received from
 
 $(function(){
     var select=document.getElementById("deal-category");
@@ -68,7 +46,7 @@ function populateDropdown(elementId, options){
       var optionElement = new Option(optionVal, optionVal);
       $(optionElement).html(optionVal);
       $dropdown.append(optionElement);
-  });    
+  });
 };
 // event handler for #deal-category on change
       // gets the selection and uses it to call populateDropdown for the sub category dropdown ex. catData[selection]
@@ -78,7 +56,6 @@ $("#deal-category").on("change",function(){
     var subs=catData[category];
     $('#deal-sub').empty();
     populateDropdown('deal-sub', subs);
->>>>>>> bc0563d49a159af74f3ca554024537c622920c3d
 });
 
 //---Sqoot API---
@@ -118,7 +95,7 @@ console.log(onclick="window.location.href=coupon.url");
   $("#deals-View").append(divBox);
   $("#deals-View").append(dealBtn);
 
-  
+
   $(".dealBtn").on("click", function() {
     window.open(dealView);
 
@@ -130,12 +107,11 @@ console.log(onclick="window.location.href=coupon.url");
 
   var imageTag = $("<img>");
   imageTag.attr("src", coupon.image_url);
-  
+
   $("#reviews-View").append(imageTag);
- 
+
 }
 
-<<<<<<< HEAD
   $("#deals-View").html(sqootData);//populates the secondary html page with sqootData deals
 
   // function storeToFirebase(){
@@ -155,11 +131,3 @@ console.log(onclick="window.location.href=coupon.url");
   }
 
 });
-=======
-//---Shows Sqoot API Data--
-    console.log(sqootData);
-   
-    })
-  // });
-
->>>>>>> bc0563d49a159af74f3ca554024537c622920c3d
