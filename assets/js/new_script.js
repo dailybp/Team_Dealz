@@ -47,8 +47,8 @@ var authKey = "BfnFKFtwdc-UU9MV9jZE";
 var queryURL = "http://api.sqoot.com/v2/deals?api_key=" + authKey;
 
 //---On Click Command Prompt---
-// $("#submit-search").on("click", function() {
-// event.preventDefault();
+$("#submit-search").on("click", function() {
+event.preventDefault();
    $.ajax({
     url: queryURL,
     method: "GET"
@@ -68,12 +68,15 @@ var results = sqootData;
   var dealView = coupon.url;
   var dealBtn = $('<button type="button" class="btn btn-danger dealBtn">'+ "View Deal" +'</button>');
 
+dealBtn.data("url", dealView);
+
 console.log(onclick="window.location.href=coupon.url");
 
   var displayBox = ("<h4>"+shortTitle+"</h4>" + "<br>" + "Provided By: " + provider + "<br>" + "$" + price + "<br>");
   //---What will be shown in the Div Box---
   var divBox = $("<div id = dealzBox>").html(displayBox);
 
+console.log(dealView);
 
   //---Populates Div Box with Variable Data from API---
   $("#deals-View").append(divBox);
@@ -81,7 +84,7 @@ console.log(onclick="window.location.href=coupon.url");
 
   
   $(".dealBtn").on("click", function() {
-    window.open(dealView);
+    window.open($(this).data("url"));
 
 
     // ---Need to be able to grab url for each div---
@@ -100,5 +103,5 @@ console.log(onclick="window.location.href=coupon.url");
     console.log(sqootData);
    
     })
-  // });
+  });
 
