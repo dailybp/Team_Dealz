@@ -1,21 +1,21 @@
 //$.post("https://api.yelp.com/oauth2/token",{
-//  grant_type: "client_credentials",
- // client_id: "l_OltA5Ew4ICDizscxfjeg",
- // client_secret: "yfDHBhk1vmpuW5BiOj5nqXFGKT920vVSf011iddUwUcyPKF7qWyIRkTZWVWXDqhV"
+// grant_type: "client_credentials",
+// client_id: "l_OltA5Ew4ICDizscxfjeg",
+// client_secret: "yfDHBhk1vmpuW5BiOj5nqXFGKT920vVSf011iddUwUcyPKF7qWyIRkTZWVWXDqhV"
 //}, function(response){
-//  console.log(response);
-//  var token = response.access_token;
-  //write all js in here (yelp)
-
-
-  //--------
- // $.ajax({
- //   url: "https://api.yelp.com/v3/businesses/search?location=Washington+DC",
- //   headers:{"Authorization": "Bearer " + token}
- // }).done(function(response){
+// console.log(response);
+// var token = response.access_token;
+//  //write all js in here (yelp)
+//
+//
+// //  //--------
+//  $.ajax({
+//    url: "https://api.yelp.com/v3/businesses/search?location=Washington+DC",
+//    headers:{"Authorization": "Bearer " + token}
+//  }).done(function(response){
 //    console.log(response);
 //  });
-  //responses received from
+//  //responses received from
 
 $(function(){
     var select=document.getElementById("deal-category");
@@ -30,8 +30,10 @@ function populateDropdown(elementId, options){
       var optionElement = new Option(optionVal, optionVal);
       $(optionElement).html(optionVal);
       $dropdown.append(optionElement);
+
   });    
 }
+
 // event handler for #deal-category on change
       // gets the selection and uses it to call populateDropdown for the sub category dropdown ex. catData[selection]
 $("#deal-category").on("change",function(){
@@ -81,50 +83,75 @@ var results = sqootData;
   for (var i=0; i<results.deals.length; i++){
 
   //---Variables for API Data---
-      var coupon = results.deals[i].deal;
-      var shortTitle = coupon.short_title;
-      var price = coupon.price;
-      var provider = coupon.provider_name;
-      var dealView = coupon.url;
-      var dealBtn = $('<button type="button" class="btn btn-danger dealBtn">' + "View Deal" +'</button>');
+  var coupon = results.deals[i].deal;
+  var shortTitle = coupon.short_title;
+  var price = coupon.price;
+  var provider = coupon.provider_name;
+  var dealView = coupon.url;
+  //------Variables being Used for Yelp Api call
+  phoneNumber = sqootData.deals[i].deal.merchant.phone_number;
+  console.log(phoneNumber);
+  zipCode = sqootData.deals[i].deal.merchant.postal_code;
+  console.log(zipCode);
+  latitude = sqootData.deals[i].deal.merchant.latitude;
+  console.log(latitude);
+  longitude = sqootData.deals[i].deal.merchant.longitude;
+  console.log(longitude);
+  //--------------------------------------------
+  var dealBtn = $('<button type="button" class="btn btn-danger dealBtn">'+ "View Deal" +'</button>');
       
 dealBtn.data("url", dealView);
 
 
-  var displayBox = ("<h4>"+shortTitle+"</h4>" + "<br>" + "Provided By: " + provider + "<br>" + "$" + price + "<br>");
-  //---What will be shown in the Div Box---
-  var divBox = $("<div id = dealzBox>").html(displayBox);
 
+
+//  var displayBox = "<div class = \"container-fluid dealzBox\"><h4>"+shortTitle+"</h4>" + "<br>" + 
+ //         "Provided By: " + provider + "<br>" + "$" + price + "<br>";
+  //---What will be shown in the Div Box---
+ // var divBox = $("<div class = dealzBox>").html(displayBox);
+  var imageTag = $("<img class=\"image-View\">");
+  imageTag.attr("src", coupon.image_url);
 
   //---Populates Div Box with Variable Data from API---
-  $("#deals-View").append(divBox);
-  $("#deals-View").append(dealBtn);
+  $("#deals-View").append("<row><div class = \"container-fluid dealzBox\"><div class=\"col-md-4\">"+ 
+    "<img class=\"image-View\" src=\""+coupon.image_url+"\" /></div> +<div class=\"col-md-8\">"+
+    
+   "<h4>"+shortTitle+"</h4>" + "<br>" + 
+          "Provided By: " + provider + "<br>" + "$" + price + "<br>" +
+    '<button type="button" class="btn btn-danger dealBtn">'+ "View Deal" +'</button>"</div></row>');
+    //  .append(imageTag)
+    //  .append(dealBtn)
+    //  .append('</div>');
+      //$("#deals-View").append(dealBtn);
 
   
 $(".dealBtn").on("click", function() {
     window.open($(this).data("url"));
-    
   })
 
 $('.btn btn-primary').click(function() {
     window.location = $('#deal-sub').val();
     console.log(val);
 });
+
     // ---Need to be able to grab url for each div---
     // location.href=this.dealView;
   
 
-
-  var imageTag = $("<img>");
-  imageTag.attr("src", coupon.image_url);
-  
   $("#reviews-View").append(imageTag);
- 
+
 }
 
 //---Shows Sqoot API Data--
+//<<<<<<< HEAD
 
    }
     })
    });
-
+//
+//=======
+//    console.log(sqootData);
+//
+//    })
+  //});
+//>>>>>>> 64632373a660a3b6c05a20dd7d7668b577b98e98

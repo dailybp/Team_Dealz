@@ -75,8 +75,10 @@ button, input, select, textarea {
     right:0;
 }
 
-
-#dealzBox{
+.image-View{
+  ;
+}
+.dealzBox{
   border-color: #FF8C00;
   border-width: 2px;
   border-style: solid;
@@ -84,7 +86,6 @@ button, input, select, textarea {
   padding:10px;
 /*  margin-bottom: 40px;*/
   text-align: center;
-  height: 100%;
   background-color: #F0B52E;
 }
 
@@ -101,14 +102,12 @@ footer{
     visibility:visible;
 }
 img{
-    margin-top: 40px;
-    height:100%;
-    width:200px;
+    height: 300px;
     float:right;
 }
 .dealBtn{
     margin-top: 0;
     top:0;
-    margin-bottom: 40px;
+ 
 
 }
