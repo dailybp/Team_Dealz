@@ -72,6 +72,13 @@ button, input, select, textarea {
     height: 200px;
     width:100%;
     text-align: center;
+/*    border-color: #FF8C00;
+    border-width: 2px;
+    border-style: solid;
+    color: white;
+    margin:10px;
+    background-color: #F0B52E;*/
+
 }
 
 #reviews-View{
