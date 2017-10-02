@@ -115,10 +115,10 @@ var results = sqootData;
 
   //---Populates Div Box with Variable Data from API---
   $("#deals-View").append("<row><div class = \"container-fluid dealzBox\"><div class=\"col-md-4\">"+ 
-    "<img class=\"image-View\" src=\""+coupon.image_url+"\" /></div> +<div class=\"col-md-8\">"+
+    "<img class=\"image-View\" src=\""+coupon.image_url+"\" /></div> <div class=\"col-md-8\">"+
    "<h4>"+shortTitle+"</h4>" + "<br>" + 
           "Provided By: " + provider + "<br>" + "$" + price + "<br>" +
-    '<button type="button" class="btn btn-danger dealBtn' + i + '">'+ "View Deal" +'</button>"</div></row>');
+    '<button type="button" class="btn btn-primary dealBtn' + i + '">'+ "View Deal" +'</button></div></row>');
     //  .append(imageTag)
     //  .append(dealBtn)
     //  .append('</div>');
