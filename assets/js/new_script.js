@@ -17,22 +17,48 @@
 //  });
 //  //responses received from
 
-$(function(){
-    var select=document.getElementById("deal-category");
-    catData={'product': ["beauty_health","automotive", "audio", "beauty_health", "craft_hobbies", "electronics", "food_alcohol", "mens_fashion", "mobile", "movies_music_games", "office_supplies","toys", "tools", "women_fashion"], 'fitness':["boot-camp", "fitness-classes", "gym", "martial-arts", "personal-training", "pilates", "yoga"], 'dining-nightlife': ["bars-clubs", "dining-nightlife", "restaurants"]
-  };
-  var categoryKeys=Object.keys(catData);
-  populateDropdown('deal-category', categoryKeys);
-});
+
 function populateDropdown(elementId, options){
   var $dropdown = $("#" + elementId);
-    options.forEach(function(optionVal){
-      var optionElement = new Option(optionVal, optionVal);
-      $(optionElement).html(optionVal);
-      $dropdown.append(optionElement);
-
+  options.forEach(function(optionVal){
+    var optionElement = new Option(optionVal, optionVal);
+    $(optionElement).html(optionVal);
+    $dropdown.append(optionElement);
   });    
 }
+
+var catData = {};
+$.ajax({
+    url: "http://api.sqoot.com/v2/categories?api_key=BfnFKFtwdc-UU9MV9jZE",
+    method: "GET"
+}).done(function(data){
+    
+    var categories = data.categories;
+    categories.forEach(function(each){
+        console.log(each);
+        var parentSlug = each.category.parent_slug;
+        var childSlug = each.category.slug;
+        if(parentSlug == null){
+            parentSlug = "Miscellaneous";
+        }
+        if(catData[parentSlug]){ //if key exists already in catData         
+            catData[parentSlug].push(childSlug);
+
+        }else{ //else key does not exist
+            catData[parentSlug]=[childSlug];
+        }
+
+    });
+    console.log(catData);
+
+    var select=document.getElementById("deal-category");
+
+    var categoryKeys=Object.keys(catData);
+    populateDropdown('deal-category', categoryKeys);
+    
+});
+
+
 
 // event handler for #deal-category on change
       // gets the selection and uses it to call populateDropdown for the sub category dropdown ex. catData[selection]
@@ -50,26 +76,43 @@ $("#deal-category").on("change",function(){
      
 });
  
-
-
-
-
 //---On Click Command Prompt---
 
- $("#submit-search").on("click", function() {
+$("#submit-search").on("click", function() {
    event.preventDefault();
      //---Sqoot API---
 var authKey = "BfnFKFtwdc-UU9MV9jZE";
 
 var queryURL = "http://api.sqoot.com/v2/deals?api_key=" + authKey + "&category_slugs=" + value;     
-
+ 
+     
    $.ajax({
     url: queryURL,
     method: "GET"
 }).done(function(sqootData) {
 var results = sqootData;
-
-                   
+              
+//var catData = {};
+//var categories = sqootData.categories;
+//categories.forEach(function(category){
+//    if(catData[category.parent_slug]){
+//          //if key exists
+//        catData[category.parent_slug].push(category.name);
+//        //else key does not exist
+//    }else{
+//        catData[category.parent_slug]=[category.name];
+//    }
+//});
+//
+//function populateDropdown(elementId, options){
+//  var $dropdown = $("#" + elementId);
+//    options.forEach(function(optionVal){
+//      var optionElement = new Option(optionVal, optionVal);
+//      $(optionElement).html(optionVal);
+//      $dropdown.append(optionElement);
+//
+//  });    
+//}
                   
   //---Clears Old Div---
   $("#deals-View").empty();
@@ -102,9 +145,6 @@ var results = sqootData;
   console.log(longitude);
   //--------------------------------------------
   
-      
-
-
 // console.log(dealBtn);
 
  console.log(dealView);
