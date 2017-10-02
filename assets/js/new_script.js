@@ -161,7 +161,8 @@ var results = sqootData;
     "<img class=\"image-View\" src=\""+coupon.image_url+"\" /></div> <div class=\"col-md-8\">"+
    "<h4>"+shortTitle+"</h4>" + "<br>" + 
           "Provided By: " + provider + "<br>" + "$" + price + "<br>" +
-    '<button type="button" class="btn btn-danger dealBtn' + i + '">'+ "View Deal" +'</button></div></row>');
+    '<button type="button" class="btn btn-primary dealBtn' + i + '">'+ "View Deal" +'</button></div></row>');
+
     //  .append(imageTag)
     //  .append(dealBtn)
     //  .append('</div>');
