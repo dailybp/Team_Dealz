@@ -74,8 +74,11 @@ var results = sqootData;
   //---Clears Old Div---
   $("#deals-View").empty();
   $("#reviews-View").empty();   
+// ---Returns the Value Of Search With First Letter Uppercase---
+   var toUpperCase = value.charAt(0).toUpperCase() + value.slice(1);
+  //---If No Search Results Are Available---
      if (results.deals.length == 0) {
-        alert("no deals exist");
+        $("#deals-View").append("There Are Currently No Deals for " + (toUpperCase) + " at This Time");
         }else{
      
 
@@ -88,7 +91,7 @@ var results = sqootData;
   var price = coupon.price;
   var provider = coupon.provider_name;
   var dealView = coupon.url;
-  //------Variables being Used for Yelp Api call
+  //---Variables being Used for Yelp Api call---
   phoneNumber = sqootData.deals[i].deal.merchant.phone_number;
   console.log(phoneNumber);
   zipCode = sqootData.deals[i].deal.merchant.postal_code;
@@ -119,6 +122,7 @@ var results = sqootData;
    "<h4>"+shortTitle+"</h4>" + "<br>" + 
           "Provided By: " + provider + "<br>" + "$" + price + "<br>" +
     '<button type="button" class="btn btn-primary dealBtn' + i + '">'+ "View Deal" +'</button></div></row>');
+
     //  .append(imageTag)
     //  .append(dealBtn)
     //  .append('</div>');
