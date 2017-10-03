@@ -17,6 +17,17 @@
 //  });
 //  //responses received from
 
+//Firebase pull
+var config = {
+    apiKey: "AIzaSyBf6G5CDw1GNdhHTUUp8oOmgY9sPQxUCQM",
+    authDomain: "dealio-8c33b.firebaseapp.com",
+    databaseURL: "https://dealio-8c33b.firebaseio.com",
+    projectId: "dealio-8c33b",
+    storageBucket: "dealio-8c33b.appspot.com",
+    messagingSenderId: "260259922331"
+  };
+  firebase.initializeApp(config);
+
 
 function populateDropdown(elementId, options){
   var $dropdown = $("#" + elementId);
@@ -35,7 +46,6 @@ $.ajax({
     
     var categories = data.categories;
     categories.forEach(function(each){
-        console.log(each);
         var parentSlug = each.category.parent_slug;
         var childSlug = each.category.slug;
         if(parentSlug == null){
@@ -64,13 +74,12 @@ $.ajax({
       // gets the selection and uses it to call populateDropdown for the sub category dropdown ex. catData[selection]
 $("#deal-category").on("change",function(){
     var category = $(this).find("option:selected").val();
-    console.log(category);
     var subs=catData[category];
     $('#deal-sub').empty();
     populateDropdown('deal-sub', subs);
   $('#deal-sub').change(function (){
       value = $('#deal-sub :selected').text()
-      console.log(value);
+      
  })
 
      
@@ -92,28 +101,7 @@ var queryURL = "http://api.sqoot.com/v2/deals?api_key=" + authKey + "&category_s
 }).done(function(sqootData) {
 var results = sqootData;
               
-//var catData = {};
-//var categories = sqootData.categories;
-//categories.forEach(function(category){
-//    if(catData[category.parent_slug]){
-//          //if key exists
-//        catData[category.parent_slug].push(category.name);
-//        //else key does not exist
-//    }else{
-//        catData[category.parent_slug]=[category.name];
-//    }
-//});
-//
-//function populateDropdown(elementId, options){
-//  var $dropdown = $("#" + elementId);
-//    options.forEach(function(optionVal){
-//      var optionElement = new Option(optionVal, optionVal);
-//      $(optionElement).html(optionVal);
-//      $dropdown.append(optionElement);
-//
-//  });    
-//}
-                  
+          
   //---Clears Old Div---
   $("#deals-View").empty();
   $("#reviews-View").empty();   
