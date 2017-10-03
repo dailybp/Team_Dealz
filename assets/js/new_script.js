@@ -82,8 +82,11 @@ $("#deal-category").on("change",function(){
       
  })
 
-     
+
 });
+
+
+
  
 //---On Click Command Prompt---
 
@@ -92,7 +95,12 @@ $("#submit-search").on("click", function() {
      //---Sqoot API---
 var authKey = "BfnFKFtwdc-UU9MV9jZE";
 
-var queryURL = "http://api.sqoot.com/v2/deals?api_key=" + authKey + "&category_slugs=" + value;     
+//getting the zipcode for the queryURL    
+zip = $("#deal-location").val().trim();
+console.log(zip);
+    
+    
+var queryURL = "http://api.sqoot.com/v2/deals?api_key=" + authKey + "&category_slugs=" + value + "&location=" + zip;     
  
      
    $.ajax({
