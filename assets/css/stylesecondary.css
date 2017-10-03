@@ -39,7 +39,7 @@ h1{
 	font-weight: bold;	
 	font-size: 60px;
 }
-p{
+.headPage{
 	color: white;
 	margin-bottom: 10px;
 	font-size: 18px;
@@ -108,7 +108,7 @@ button, input, select, textarea {
   border-style: solid;
   color: gray;
   padding:10px;
-/*  margin-bottom: 40px;*/
+  margin-bottom: 20px;
   text-align: center;
   background-color: transparent;
 }
@@ -124,9 +124,8 @@ button, input, select, textarea {
     color: white;
     position:fixed!important;
     position:absolute;
+    margin: 0 auto;
     visibility:visible;
-
-    /*padding-bottom: 15px;*/
 }
 
 #footer h4{
@@ -134,7 +133,7 @@ margin: 0 auto;
 padding: 5px;
 }
 
-img{
+.image-View {
 	margin-left: -10px;
     height: 190px;
     width: 255px;
@@ -149,7 +148,7 @@ img{
 }
 
 h4{
-margin-top: 30px;
+margin-top: 15px;
 }
 .btn:hover{
 	color: white;
@@ -160,4 +159,21 @@ margin-top: 30px;
 }
 .btn: active{
 	color: white;
+}
+.yelpStars
+{
+    height: 50px;
+    width: 40%;
+/*    text-align: center;
+    align-items: middle;*/
+    margin-top: 15px;
+    max-width: 320px;
+}
+.noDeals{
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    margin: 30px;
+    font-family: 'Changa', sans-serif;
+    font-size: 2em;
 }

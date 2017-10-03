@@ -131,19 +131,23 @@ var results = sqootData;
    var toUpperCase = value.charAt(0).toUpperCase() + value.slice(1);
   //---If No Search Results Are Available---
      if (results.deals.length == 0) {
-        $("#deals-View").append("There Are Currently No Deals for " + (toUpperCase) + " at This Time");
+        $("#deals-View").append('<p class = noDeals>'+ "There Are Currently No Deals for " + (toUpperCase) + " at This Time" + "<br>" + 
+          "If Using A Location, Try Searching Without One For Online Only Deals"+ '</p>');
         }else{
      
-
+var coupon, shortTitle, price, provider, dealView, merchant;
 
   for (var i=0; i<results.deals.length; i++){
 
+
   //---Variables for API Data---
-  var coupon = results.deals[i].deal;
-  var shortTitle = coupon.short_title;
-  var price = coupon.price;
-  var provider = coupon.provider_name;
-  var dealView = coupon.url;
+  // yelpStars = "<img src="../images/yelpStars2.png"/>"
+  coupon = results.deals[i].deal;
+  shortTitle = coupon.short_title;
+  price = coupon.price;
+  provider = coupon.provider_name;
+  dealView = coupon.url;
+  merchant = coupon.merchant.name;
   //---Variables being Used for Yelp Api call---
   phoneNumber = sqootData.deals[i].deal.merchant.phone_number;
   console.log(phoneNumber);
@@ -171,7 +175,8 @@ var results = sqootData;
     "<img class=\"image-View\" src=\""+coupon.image_url+"\" /></div> <div class=\"col-md-8\">"+
    "<h4>"+shortTitle+"</h4>" + "<br>" + 
           "Provided By: " + provider + "<br>" + "$" + price + "<br>" +
-    '<button type="button" class="btn btn-primary dealBtn' + i + '">'+ "View Deal" +'</button></div></row>');
+    '<button type="button" class="btn btn-primary dealBtn' + i + '">'+ "View Deal" +'</button>'
+    + "<br>" +'<a href="https://www.yelp.com/search?find_desc=' + merchant + "&find_loc=" + zip + '" ><img src="assets/images/yelpStars2.png" class="yelpStars"' + '/></a></div></row>');
 
     //  .append(imageTag)
     //  .append(dealBtn)
