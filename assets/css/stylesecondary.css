@@ -8,7 +8,10 @@
 */
 html, body {
     height: 100%;
-}    
+}   
+body{
+    background-image: url("../images/background2.jpg");
+} 
 .container{
 background-image: url("../images/background.jpg");
 background-size: 105%;
@@ -116,13 +119,21 @@ button, input, select, textarea {
     left: 0;
     bottom: 0;
     text-align: center;
+    padding-top: 0;
     background-color: #289988;
     color: white;
     position:fixed!important;
     position:absolute;
     visibility:visible;
-    padding-bottom: 15px;
+
+    /*padding-bottom: 15px;*/
 }
+
+#footer h4{
+margin: 0 auto;
+padding: 5px;
+}
+
 img{
 	margin-left: -10px;
     height: 190px;
