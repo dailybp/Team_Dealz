@@ -27,7 +27,12 @@ var config = {
     messagingSenderId: "260259922331"
   };
   firebase.initializeApp(config);
-
+var database = firebase.database();
+var searches ={};
+database.ref("/catsearch").on("value", function(snapshot){ 
+  searches=snapshot.val();
+  console.log(searches);
+});
 
 function populateDropdown(elementId, options){
   var $dropdown = $("#" + elementId);
@@ -89,6 +94,15 @@ $("#deal-category").on("change",function(){
 
 $("#submit-search").on("click", function() {
    event.preventDefault();
+    var subcategory = $('#deal-sub :selected').text();
+    var numSearches=1;
+    if(searches[value]){
+      numSearches = searches[value].searched +1
+    }
+    database.ref("/catsearch/"+ value).set({
+      searched: numSearches
+    });
+
      //---Sqoot API---
 var authKey = "BfnFKFtwdc-UU9MV9jZE";
 
