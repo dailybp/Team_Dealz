@@ -70,6 +70,7 @@ $.ajax({
 
     var categoryKeys=Object.keys(catData);
     populateDropdown('deal-category', categoryKeys);
+
     
 });
 
@@ -84,12 +85,12 @@ $("#deal-category").on("change",function(){
     populateDropdown('deal-sub', subs);
   $('#deal-sub').change(function (){
       value = $('#deal-sub :selected').text()
+
       
  })
 
 
 });
-
 
 
  
@@ -131,8 +132,8 @@ var results = sqootData;
    var toUpperCase = value.charAt(0).toUpperCase() + value.slice(1);
   //---If No Search Results Are Available---
      if (results.deals.length == 0) {
-        $("#deals-View").append('<p class = noDeals>'+ "There Are Currently No Deals for " + (toUpperCase) + " at This Time" + "<br>" + 
-          "If Using A Location, Try Searching Without One For Online Only Deals"+ '</p>');
+        $("#deals-View").append('<p class = noDeals>'+ "There Are Currently No Deals for " + (toUpperCase) + " In This Location" + "<br>" + 
+          "If Searching With A Location, Try Again Without One For Online Only Deals"+ '</p>');
         }else{
      
 var coupon, shortTitle, price, provider, dealView, merchant;
